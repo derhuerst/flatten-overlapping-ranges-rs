@@ -15,7 +15,7 @@ A  A   A         D  D
        C  C
 ```
 
-My first crate! 🙌
+My first [crate](https://crates.io)! 🙌
 
 [![crates.io version](https://img.shields.io/crates/v/flatten_overlapping_ranges.svg)](https://crates.io/crates/flatten_overlapping_ranges)
 [![build status](https://api.travis-ci.org/derhuerst/flatten-overlapping-ranges-rs.svg?branch=master)](https://travis-ci.org/derhuerst/flatten-overlapping-ranges-rs)
