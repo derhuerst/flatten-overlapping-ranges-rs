@@ -10,3 +10,10 @@ description = "Flatten overlapping ranges into a sequence of sections."
 keywords = ["ranges", "overlap", "sections", "flatten", "merge", "intersect"]
 
 [dependencies]
+
+[dev-dependencies]
+bencher = "0.1.5"
+
+[[bench]]
+name = "example"
+harness = false
