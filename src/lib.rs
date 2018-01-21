@@ -50,3 +50,61 @@ pub fn flatten(ranges: &Vec<(&char, usize, usize)>) -> Vec<(usize, Vec<char>)> {
 
     sections
 }
+
+#[cfg(test)]
+mod tests {
+    use super::flatten;
+
+    #[test]
+    fn simple_example() {
+        let a = 'a';
+        let b = 'b';
+        let c = 'c';
+        let d = 'd';
+
+        let simple: Vec<(&char, usize, usize)> = vec![
+            (&a, 0, 7),
+            (&b, 2, 12),
+            (&c, 5, 5),
+            (&d, 12, 7)
+        ];
+        let mut res = flatten(&simple);
+
+        assert_eq!(res[0].0, 2);
+        assert_eq!(res[0].1.len(), 1);
+        assert_eq!(res[0].1[0], a);
+
+        assert_eq!(res[1].0, 3);
+        assert_eq!(res[1].1.len(), 2);
+        res[1].1.sort();
+        assert_eq!(res[1].1[0], a);
+        assert_eq!(res[1].1[1], b);
+
+        assert_eq!(res[2].0, 2);
+        assert_eq!(res[2].1.len(), 3);
+        res[2].1.sort();
+        assert_eq!(res[2].1[0], a);
+        assert_eq!(res[2].1[1], b);
+        assert_eq!(res[2].1[2], c);
+
+        assert_eq!(res[3].0, 3);
+        assert_eq!(res[3].1.len(), 2);
+        res[3].1.sort();
+        assert_eq!(res[3].1[0], b);
+        assert_eq!(res[3].1[1], c);
+
+        assert_eq!(res[4].0, 2);
+        assert_eq!(res[4].1.len(), 1);
+        assert_eq!(res[4].1[0], b);
+
+        assert_eq!(res[5].0, 2);
+        assert_eq!(res[5].1.len(), 2);
+        res[5].1.sort();
+        assert_eq!(res[5].1[0], b);
+        assert_eq!(res[5].1[1], d);
+
+        assert_eq!(res[6].0, 5);
+        assert_eq!(res[6].1.len(), 1);
+        assert_eq!(res[6].1[0], d);
+    }
+}
