@@ -1,0 +1,12 @@
+[package]
+name = "flatten_overlapping_ranges"
+version = "0.1.0"
+authors = ["Jannis R <mail@jannisr.de>"]
+repository = "https://github.com/derhuerst/flatten-overlapping-ranges-rs.git"
+homepage = "https://github.com/derhuerst/flatten-overlapping-ranges-rs.git"
+license = "ISC"
+readme = "README.md"
+description = "Flatten overlapping ranges into a sequence of sections."
+keywords = ["ranges", "overlap", "sections", "flatten", "merge", "intersect"]
+
+[dependencies]
