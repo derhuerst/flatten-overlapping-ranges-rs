@@ -2,6 +2,19 @@
 
 **Flatten overlapping ranges into a sequence of sections.**
 
+```
+---A---     ---D---
+  -----B------
+     --C--
+```
+
+```
+-- --- -- --- -- -- -----
+A  A   A         D  D
+   B   B  B   B  B
+       C  C
+```
+
 My first crate! 🙌
 
 [![crates.io version](https://img.shields.io/crates/v/flatten_overlapping_ranges.svg)](https://crates.io/crates/flatten_overlapping_ranges)
@@ -22,7 +35,28 @@ flatten_overlapping_ranges = "0.1.0"
 ## Usage
 
 ```rust
-// todo
+use flatten_overlapping_ranges::flatten;
+
+let simple: Vec<(&char, usize, usize)> = vec![
+    (&'a', 0, 7),
+    (&'b', 2, 12),
+    (&'c', 5, 5),
+    (&'d', 12, 7)
+];
+
+println!("{:?}", flatten(&simple));
+```
+
+```
+[
+	(2, ['a']),
+	(3, ['a', 'b']),
+	(2, ['a', 'b', 'c']),
+	(3, ['b', 'c']),
+	(2, ['b']),
+	(2, ['b', 'd']),
+	(5, ['d'])
+]
 ```
 
 

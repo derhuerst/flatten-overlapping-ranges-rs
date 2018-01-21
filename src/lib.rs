@@ -33,7 +33,7 @@ pub fn flatten(ranges: &Vec<(&char, usize, usize)>) -> Vec<(usize, Vec<char>)> {
     state.insert(ids[0]);
 
     let l = indexes.len() - 1;
-    for i in 1..l {
+    for i in 1..(l + 1) {
         sections.push((
             indexes[i] - indexes[i - 1],
             state.iter().map(|&id_ref| *id_ref).collect()
